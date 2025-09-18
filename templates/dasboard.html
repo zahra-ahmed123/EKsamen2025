@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Patient Dashboard</title>
+<style>
+body { font-family: Arial; background: #f4f7f9; margin:0; }
+header { background: #e63ee0; color:white; padding:20px; text-align:center; }
+.container { width: 90%; max-width:600px; margin:20px auto; background:white; padding:20px; border-radius:8px; }
+form { display:flex; flex-direction:column; }
+label { margin-top:10px; }
+input { padding:8px; margin-top:5px; }
+button { margin-top:15px; padding:10px; background:#e63ee0; color:white; border:none; cursor:pointer; }
+button:hover { background:#e63ee0; }
+.message { margin-top:15px; color:green; }
+table { width:100%; border-collapse: collapse; margin-top:20px; }
+th, td { padding:12px; border:1px solid #ddd; text-align:left; }
+th { background:#f2f2f2; }
+</style>
+</head>
+<body>
+
+<header>
+<h1>Welcome, {{ name }}</h1>
+</header>
+
+<div class="container">
+<h2>Book an Appointment</h2>
+
+<form method="POST">
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" required>
+
+    <label for="time">Time:</label>
+    <input type="time" id="time" name="time" required>
+
+    <button type="submit">Book</button>
+</form>
+
+{% if message %}
+<p class="message">{{ message }}</p>
+{% endif %}
+
+<h2>Upcoming Appointments</h2>
+{% if appointments %}
+<table>
+<tr><th>Date</th><th>Time</th></tr>
+{% for appt in appointments %}
+<tr>
+<td>{{ appt.date.strftime("%Y-%m-%d") }}</td>
+<td>{{ appt.time.strftime("%H:%M") }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+<p>No upcoming appointments.</p>
+{% endif %}
+</div>
+
+</body>
+</html>
