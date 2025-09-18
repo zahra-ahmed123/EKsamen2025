@@ -1,8 +1,7 @@
 Hospital Management System (HMS)
 Overview
 This project is a Hospital Management System (HMS) built using Python and Flask.
-It demonstrates the implementation of DevSecOps and the Secure Software Development Lifecycle (SDLC) principles to build a secure web application.
-The system manages sensitive patient and administrative data while ensuring compliance with data protection regulations such as General Data Protection Regulation (GDPR).
+
 Features
 •	User Authentication
 o	Secure registration and login with password hashing
@@ -45,7 +44,7 @@ python
 >>> from app.utils.security import hash_password
 >>> app = create_app()
 >>> with app.app_context():
-...     admin = User(email="admin@hospital.com", password_hash=hash_password("AdminPass123"), role="admin")
+...     admin = User(email="admin@example.com", password_hash=hash_password("AdminPass123"), role="admin")
 ...     db.session.add(admin)
 ...     db.session.commit()
 6. Run the application
