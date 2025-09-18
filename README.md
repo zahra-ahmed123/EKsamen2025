@@ -29,7 +29,7 @@ Backend: Flask (Python)
  
 Getting Started
 1. Clone the repository
-git clone <your-repo-url>
+git clone <https://github.com/zahra-ahmed123/EKsamen2025>
 cd A.3
 2. Create a virtual environment
 python3 -m venv venv
